@@ -2,12 +2,14 @@ def check_avail(list_activities, s_i, e_i, person):
     check_start_end = False
     if len(scheduling_list) == 0:
         scheduling_list.append("C")
-        cam_scheduling_list.append((s_i, e_i))
+        list_activities.append((s_i, e_i))
         return True
     else:
         for start, end in list_activities:
-            if start < s_i < end and start < e_i < end:
+            if start < s_i < end or start < e_i < end:
                 return False
+            else:
+                check_start_end = True
         if check_start_end or len(list_activities) == 0:
             if person == "C":
                 scheduling_list.append(person)
@@ -37,7 +39,11 @@ while tmp_tc > 0:
         tmp_n -= 1
     if len(scheduling_list) != n:
         print("Case #{}: {}".format(m, "IMPOSSIBLE"))
+        print(scheduling_list)
     else:
         print("Case #{}: {}".format(m, ''.join(scheduling_list)))
     m += 1
+    scheduling_list.clear()
+    cam_scheduling_list.clear()
+    jam_scheduling_list.clear()
     tmp_tc -= 1
