@@ -1,5 +1,5 @@
 # vestigium
-def printDiagonalSums(mat, n): 
+def print_diagonal_sums(mat, n):
     d_sum = 0
     for i in range(0, n):  
         d_sum += mat[i][i]
