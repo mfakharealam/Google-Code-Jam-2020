@@ -10,7 +10,7 @@ tc = int(input())
 tmp_tc = tc
 mat = []
 m = 1
-while(tmp_tc > 0):
+while tmp_tc > 0:
     n = int(input())    # size
     tmp_n = n
     while tmp_n > 0:
@@ -28,6 +28,6 @@ while(tmp_tc > 0):
         if len(set(tmp)) != len(tmp):
             c_c += 1
     d_sum = printDiagonalSums(mat, n)
-    print("Case #" + str(m) + ": " + str(d_sum) + " " + str(r_c) + " " + str(c_c))
+    print("Case #{}: {} {} {}".format(m, d_sum, r_c, c_c))
     m += 1
     tmp_tc -= 1
